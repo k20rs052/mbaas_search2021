@@ -35,7 +35,7 @@
     function searchLevel() {
       let level = parseInt($("#level").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("level", level).fetchAll()
+      TestDataClass.equalTo("level", true).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -53,7 +53,7 @@
      function searchLevelGT() {
       let level = parseInt($("#level").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.greaterThan("level", level).fetchAll()
+      TestDataClass.order("level", false).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -99,7 +99,7 @@
     <br>
     <button class="btn" onclick = "searcharea()">地域</button>
     <button class="btn" onclick = "searchLevel()">21/22</button>
-    <button class="btn" onclick = "searchLevelGT()">Level &gt</button>
+    <button class="btn" onclick = "searchLevelGT()">昇順</button>
   </div>
   <div></div>
   <div id="message">message area</div>
