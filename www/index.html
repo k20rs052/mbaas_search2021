@@ -41,10 +41,10 @@
         })
     }
 
-    function searchLevelLT(){
-      let level  = parseInt($("#level").val());
+    function searcharea(){
+      let defence  = $("#defence").val();
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.lessThan("level", level).fetchAll()
+      TestDataClass.equalTo("defence", defence).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -81,21 +81,22 @@
 </head>
 
 <body>
-  <h1>mBaaS search</h1>
+  <h1>プレミアリーグ</h1>
   <div>
-    <label for="name">name:</label>
+    <label for="name">チーム名:</label>
     <input id="name" type="text" placeholder="monster name">
   </div>
+  <div></div>
   <div>
-    <label for="level">level:</label>
+    <label for="level">現在順位:</label>
     <input id="level" type="number" placeholder="monster level">
   </div>
   <div id="button">
-    <button class="btn" onclick="fetchAll()">Fetch All</button>
-    <button class="btn" onclick = "searchName()">Name</button>
+    <button class="btn" onclick="fetchAll()">全チーム</button>
+    <button class="btn" onclick = "searchName()">名前</button>
     <br>
-    <button class="btn" onclick = "searchLevelLT()">Level &LT</button>
-    <button class="btn" onclick = "searchLevel()">Level</button>
+    <button class="btn" onclick = "searcharea()">地域</button>
+    <button class="btn" onclick = "searchLevel()">順位</button>
     <button class="btn" onclick = "searchLevelGT()">Level &gt</button>
   </div>
   <div id="message">message area</div>
