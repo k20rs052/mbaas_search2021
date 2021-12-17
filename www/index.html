@@ -13,47 +13,47 @@
     // NCMB アクセスの準備
     let ncmb = new NCMB(appKey, clientKey);
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
-    const db = "m";
+    const db = "p";
 
     function fetchAll() {
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.order("name", false).fetchAll()
+      TestDataClass.order("team", false).fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
 
-    function searchName() {
-      let name = $("#name").val();
+    function searchteam() {
+      let team = $("#team").val();
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("name", name).fetchAll()
+      TestDataClass.equalTo("team", team).fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
 
-    function searchLevel() {
-      let level = parseInt($("#level").val());
+    function searchranking() {
+      let ranking = parseInt($("#ranking").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("level", true).fetchAll()
+      TestDataClass.equalTo("ranking", true).fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
 
     function searcharea(){
-      let defence  = $("#defence").val();
+      let area  = $("#area").val();
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("defence", defence).fetchAll()
+      TestDataClass.equalTo("area", area).fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
 
-     function searchLevelGT() {
-      let level = parseInt($("#level").val());
+     function searchrankingGT() {
+      let ranking = parseInt($("#ranking").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.order("level", false).fetchAll()
+      TestDataClass.order("ranking", false).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -67,10 +67,10 @@
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
-        msg += "<td>" + results[i].name + "</td>";
-        msg += "<td class='num'>" + results[i].level + "</td>";
+        msg += "<td>" + results[i].team + "</td>";
+        msg += "<td class='num'>" + results[i].ranking + "</td>";
         msg += "<td class='num'>" + results[i].attack + "</td>";
-        msg += "<td class='num'>" + results[i].defence + "</td>";
+        msg += "<td class='num'>" + results[i].area + "</td>";
         msg += "</tr>";
       }
       // テーブルのテイラを生成
@@ -83,23 +83,23 @@
 <body>
   <h1>プレミアリーグ</h1>
   <div>
-    <label for="name">チーム名:</label>
-    <input id="name" type="text" placeholder="team name">
+    <label for="team">チーム名:</label>
+    <input id="team" type="text" placeholder="team name">
   </div>
   <div></div>
   <div>
-    <label for="level">現在順位:</label>
-    <input id="level" type="number" placeholder="ranking">
+    <label for="lranking">現在順位:</label>
+    <input id="ranking" type="number" placeholder="ranking">
   </div>
-    <label for="level">area:</label>
-    <input id="defence" type="text" placeholder="area">
+    <label for="ranking">area:</label>
+    <input id="area" type="text" placeholder="area">
   <div id="button">
     <button class="btn" onclick="fetchAll()">全チーム</button>
-    <button class="btn" onclick = "searchName()">名前</button>
+    <button class="btn" onclick = "searchteam()">名前</button>
     <br>
     <button class="btn" onclick = "searcharea()">地域</button>
-    <button class="btn" onclick = "searchLevel()">21/22</button>
-    <button class="btn" onclick = "searchLevelGT()">昇順</button>
+    <button class="btn" onclick = "searchranking()">21/22</button>
+    <button class="btn" onclick = "searchrankingGT()">昇順</button>
   </div>
   <div></div>
   <div id="message">message area</div>
