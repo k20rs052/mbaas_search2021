@@ -39,6 +39,8 @@
         .then(function(results) {
           showResults(results);
         })
+
+      
     }
 
     function searcharea(){
@@ -77,6 +79,8 @@
       msg += "</table>";
       $("#message").html(msg);
     }
+
+    
   </script>
 </head>
 
@@ -91,15 +95,16 @@
     <label for="lranking">現在順位:</label>
     <input id="ranking" type="number" placeholder="ranking">
   </div>
-    <label for="ranking">area:</label>
+    <label for="ranking">ホーム:</label>
     <input id="area" type="text" placeholder="area">
   <div id="button">
     <button class="btn" onclick="fetchAll()">全チーム</button>
     <button class="btn" onclick = "searchteam()">名前</button>
-    <br>
     <button class="btn" onclick = "searcharea()">地域</button>
+    <br>
     <button class="btn" onclick = "searchranking()">21/22</button>
     <button class="btn" onclick = "searchrankingGT()">昇順</button>
+    <button class="btn" onclick = "searchrankingLT()">降順</button>
   </div>
   <div></div>
   <div id="message">message area</div>

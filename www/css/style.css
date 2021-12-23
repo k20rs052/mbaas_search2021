@@ -3,7 +3,7 @@ body {
   background-color: aqua;
 }
 h1 {
-  background-color: white;
+  background-color: rgb(221, 22, 205);
 }
 
 label {
@@ -34,7 +34,10 @@ input {
 
 #message {
   border-style: solid;
-  border-color: grey;
+  border-color: rgb(8, 2, 2);
+  background-color:skyblue;
+  color:white;
+  
 }
 
 table {
