@@ -60,6 +60,15 @@
           showResults(results);
         })
     }
+
+    function searchrankingLT() {
+      let ranking = parseInt($("#ranking").val());
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.order("ranking", true).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
     
 
 
